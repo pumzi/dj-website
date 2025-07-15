@@ -171,6 +171,23 @@ nav a.active {
   color: #b71c1c;
 }
 
+    @keyframes sway {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+.gig-list li::before {
+  content: "🌴";
+  display: inline-block;
+  margin-right: 10px;
+  animation: sway 2s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
 
     .footer {
       text-align: center;
@@ -236,8 +253,8 @@ nav a.active {
 
   <!-- Header -->
   <header>
-    <h1>Slammer Spins</h1>
-    <p>Delivering Dancefloor Liberation One Beat at a Time</p>
+    <h1>Slammer</h1>
+    <p>Spinning Dancefloor Liberation One Beat at a Time</p>
   </header>
 
   <!-- Sections -->
@@ -263,8 +280,8 @@ nav a.active {
   <section id="past">
     <h2>Past Gigs</h2>
     <ul class="gig-list">
-      <li>🌺 Uhauler Room – Willy's – Miami Beach, FL</li>
-      <li>🕺 Strapped – Mobtown Ballroom – Baltimore, MD</li>
+      <li>🌴 Uhauler Room – Willy's – Miami Beach, FL</li>
+      <li>🌴 Strapped – Mobtown Ballroom – Baltimore, MD</li>
       <li>🌴 Sapphic Tea Party – Metro Bar – Washington, DC</li>
       <li>🌴 Booty Rex – Black Cat – Washington, DC</li>
       <li>🌴 Pride Plays – Wooly Mammoth – Washington, DC</li>
