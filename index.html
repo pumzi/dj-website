@@ -1,83 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DJ Slammer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Slammer Spins</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oleo+Script&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
       font-family: 'Quicksand', sans-serif;
-      background: linear-gradient(135deg, #ffe8d6, #ffdada, #ffe3f0);
-      color: #333;
+      color: #fff;
+      background: linear-gradient(135deg, #ff5fa2, #0099cc);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Navigation Bar */
+
+    nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: 20px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Highlight current nav link */
+nav a.active {
+  background: rgba(255, 255, 255, 0.5);
+  color: #cc2b5e;
+}
+
+/* Book Me Button */
+.book-button {
+  position: absolute;
+  right: 20px;
+  top: 8px;
+  background: #fff;
+  color: #ff5fa2;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+
+.book-button:hover {
+  background: #ffe0f0;
+  color: #cc2b5e;
+}
+
+    header {
       text-align: center;
-      padding: 50px 20px;
+      padding: 100px 20px 40px;
     }
 
-    h1 {
-      font-family: 'Pacifico', cursive;
+    header h1 {
+      font-family: 'Oleo Script', cursive;
       font-size: 3rem;
-      color: #d63384;
-      margin-bottom: 0.5em;
+      color: #fff4f9;
+      text-shadow: 2px 2px #d63384;
     }
 
-    p {
+    header p {
       font-size: 1.2rem;
-      margin-bottom: 1em;
+      color: #fff9fb;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: #ffe0f0;
+      margin-bottom: 1rem;
+      font-family: 'Oleo Script', cursive;
+    }
+
+    .gig-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .gig-list li {
+      margin-bottom: 10px;
+      font-weight: 600;
     }
 
     .button {
       display: inline-block;
-      background: #ffb6c1;
-      color: white;
+      background: #fff;
+      color: #ff5fa2;
       padding: 12px 24px;
       border-radius: 30px;
       font-weight: bold;
       text-decoration: none;
       margin: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: background 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     .button:hover {
-      background: #ff69b4;
+      background: #ffe0f0;
+      color: #cc2b5e;
     }
 
     .footer {
-      margin-top: 40px;
+      text-align: center;
+      padding: 30px 20px;
       font-size: 0.9rem;
-      color: #888;
+      color: #eee;
     }
 
-    .bg-decor {
+    /* Glitter Background */
+    .glitter {
       position: fixed;
-      top: 10px;
-      left: 10px;
-      width: 100px;
-      opacity: 0.2;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        radial-gradient(2px 2px at 20% 30%, #fff 50%, transparent 50%),
+        radial-gradient(2px 2px at 70% 40%, #fff 50%, transparent 50%),
+        radial-gradient(2px 2px at 25% 80%, #fff 50%, transparent 50%),
+        radial-gradient(2px 2px at 90% 70%, #fff 50%, transparent 50%),
+        radial-gradient(2px 2px at 50% 50%, #fff 50%, transparent 50%);
+      background-size: 100% 100%;
+      animation: glitter 3s linear infinite;
     }
 
-    .bg-decor.right {
-      left: auto;
-      right: 10px;
-      transform: scaleX(-1);
+    @keyframes glitter {
+      0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
+      100% { background-position: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%; }
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        margin: 0 8px;
+        font-size: 0.9rem;
+      }
+
+      header h1 {
+        font-size: 2.4rem;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
 <body>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Flamingo_icon.svg/1200px-Flamingo_icon.svg.png" class="bg-decor" alt="flamingo decor">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Flamingo_icon.svg/1200px-Flamingo_icon.svg.png" class="bg-decor right" alt="flamingo decor">
 
-  <h1>Slammer Beats</h1>
-  <p>Where disco meets Miami pastels 🌴</p>
-  <p>Live sets, remixes, and late-night synths inspired by the Golden Girls' timeless glam.</p>
+  <div class="glitter"></div>
 
-  <a href="https://soundcloud.com/yourprofile" class="button" target="_blank">🎵 SoundCloud</a>
-  <a href="https://instagram.com/bootyrexparty" class="button" target="_blank">📸 Instagram</a>
+  <!-- Navigation -->
+ <nav>
+  <div style="display: flex; justify-content: center; flex: 1;">
+    <a href="#who">Who Am I?</a>
+    <a href="#past">Past Gigs</a>
+    <a href="#future">Future Gigs</a>
+    <a href="#follow">Follow Me</a>
+  </div>
+  <a href="mailto:capitalismslamz@gmail.com" class="book-button">📩 Book Me</a>
+</nav>
+
+  <!-- Header -->
+  <header>
+    <h1>DJ Blanche Beats</h1>
+    <p>Spinning disco, funk, and synth for the golden souls 🌴💃</p>
+  </header>
+
+  <!-- Sections -->
+  <section id="who">
+    <h2>Who Am I?</h2>
+    <p>
+      I'm DJ Blanche Beats — a Miami-based vinyl junkie serving nostalgia on wax. Inspired by the glam and glitter of the 80s (and the sass of the Golden Girls), I mix classic disco with deep house and neon funk.
+    </p>
+    <p>
+      Whether it's beach parties or velvet lounges, I bring good vibes and pastel power wherever I go.
+    </p>
+  </section>
+
+  <section id="past">
+    <h2>Past Gigs</h2>
+    <ul class="gig-list">
+      <li>🌺 Golden Gala 2024 – Miami Beach, FL</li>
+      <li>🕺 Retro Rewind Night – Club Tropicana, NYC</li>
+      <li>🌴 Pastel Paradise Rooftop – LA Arts District</li>
+    </ul>
+  </section>
+
+  <section id="future">
+    <h2>Future Gigs</h2>
+    <ul class="gig-list">
+      <li>🦩 Flamingo Fest – July 27, 2025 – Fort Lauderdale, FL</li>
+      <li>🍹 Golden Hour Cruise – August 10, 2025 – Key West, FL</li>
+      <li>💿 Vinyl Nights Vol. 3 – September 14, 2025 – Atlanta, GA</li>
+    </ul>
+  </section>
+
+  <section id="follow">
+    <h2>Follow Me</h2>
+    <p>Catch the vibes, stay golden 💖</p>
+    <a href="https://soundcloud.com/yourprofile" class="button" target="_blank">🎵 SoundCloud</a>
+    <a href="https://instagram.com/yourprofile" class="button" target="_blank">📸 Instagram</a>
+  </section>
 
   <div class="footer">
-    <p>Stay golden 💖</p>
+    <p>Made with love & leopard print — DJ Blanche Beats © 2025</p>
   </div>
+<script>
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a:not(.book-button)");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute("id");
+        const navLink = document.querySelector(`nav a[href="#${id}"]`);
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove("active"));
+          if (navLink) navLink.classList.add("active");
+        }
+      });
+    },
+    {
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0
+    }
+  );
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
 </body>
 </html>
